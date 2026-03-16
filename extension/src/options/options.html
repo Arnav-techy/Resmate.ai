@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Settings</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      padding: 32px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 { color: #7c3aed; margin-bottom: 24px; }
+    .upload-area {
+      border: 2px dashed #333;
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 24px;
+    }
+    .upload-area:hover { border-color: #7c3aed; }
+    input[type="file"] { display: none; }
+    .btn {
+      background: #7c3aed;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn:hover { background: #6d28d9; }
+    .btn.danger { background: #dc2626; }
+    #resume-list { margin-top: 16px; }
+    .resume-item {
+      background: #1e1e1e;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    #status {
+      margin-top: 16px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .success { background: #052e16; color: #4ade80; }
+    .error { background: #2d0a0a; color: #f87171; }
+    .loading { background: #1c1917; color: #fbbf24; }
+  </style>
+</head>
+<body>
+  <h1>⚙️ Settings</h1>
+
+  <h2 style="margin-bottom:12px; font-size:16px;">Upload Resumes</h2>
+
+  <div class="upload-area" id="upload-area">
+  <div style="font-size: 32px;">📄</div>
+  <div>Click to upload PDFs (max 5)</div>
+  <div style="color:#888; font-size:12px; margin-top:4px;">
+    Files are processed in memory, never stored on server
+  </div>
+</div>
+
+<input type="file" id="file-input" multiple accept=".pdf">
+
+ 
+<button class="btn" id="upload-btn">⚡ Process Resumes</button>
+<button class="btn danger" id="clear-btn" style="margin-left:8px;">
+
+  <div id="status"></div>
+  <div id="resume-list"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>

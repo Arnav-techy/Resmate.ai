@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "AI Job Application Assistant",
+  "version": "1.0.0",
+  "description": "AI-powered resume matcher",
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "*://*.linkedin.com/*",
+    "*://*.internshala.com/*"
+  ],
+
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  },
+
+  "background": {
+    "service_worker": "src/scripts/background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.linkedin.com/jobs/*",
+        "*://*.internshala.com/*"
+      ],
+      "js": ["src/scripts/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
